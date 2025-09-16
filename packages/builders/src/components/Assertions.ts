@@ -2,12 +2,12 @@ import { ButtonStyle, ChannelType, ComponentType, SelectMenuDefaultValueType } f
 import { z } from 'zod';
 import { customIdPredicate } from '../Assertions.js';
 
-const labelPredicate = z.string().min(1).max(80);
+const labelPredicate = z.string().min(1).max(80).optional();
 
 export const emojiPredicate = z
 	.strictObject({
 		id: z.string().optional(),
-		name: z.string().min(2).max(32).optional(),
+		name: z.string().min(1).max(32).optional(),
 		animated: z.boolean().optional(),
 	})
 	.refine((data) => data.id !== undefined || data.name !== undefined, {
