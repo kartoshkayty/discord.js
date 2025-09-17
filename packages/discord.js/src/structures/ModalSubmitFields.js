@@ -73,6 +73,26 @@ class ModalSubmitFields {
   getStringSelectValues(customId) {
     return this.getField(customId, ComponentType.StringSelect).values;
   }
+
+  /**
+   * Gets the values of a user select component given a custom id
+   *
+   * @param {string} customId The custom id of the user select component
+   * @returns {string[]}
+   */
+  getUserSelectValues(customId) {
+    return this.getField(customId, ComponentType.UserSelect).values;
+  }
+
+  /**
+   * Gets the values of a channel select component given a custom id
+   *
+   * @param {string} customId The custom id of the channel select component
+   * @returns {string[]}
+   */
+  getChannelSelectValues(customId) {
+    return this.getField(customId, ComponentType.ChannelSelect).values;
+  }
 }
 
 exports.ModalSubmitFields = ModalSubmitFields;

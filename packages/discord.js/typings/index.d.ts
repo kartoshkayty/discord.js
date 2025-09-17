@@ -2559,6 +2559,14 @@ export interface StringSelectModalData extends BaseModalData<ComponentType.Strin
   values: readonly string[];
 }
 
+export interface UserSelectModalData extends BaseModalData<ComponentType.UserSelect> {
+  values: readonly string[];
+}
+
+export interface ChannelSelectModalData extends BaseModalData<ComponentType.ChannelSelect> {
+  values: readonly string[];
+}
+
 export type ModalData = StringSelectModalData | TextInputModalData;
 
 export interface LabelModalData {
@@ -2578,10 +2586,12 @@ export class ModalSubmitFields {
   public getField<Type extends ComponentType>(
     customId: string,
     type: Type,
-  ): { type: Type } & (StringSelectModalData | TextInputModalData);
+  ): { type: Type } & (ChannelSelectModalData | StringSelectModalData | TextInputModalData | UserSelectModalData);
   public getField(customId: string, type?: ComponentType): StringSelectModalData | TextInputModalData;
   public getTextInputValue(customId: string): string;
   public getStringSelectValues(customId: string): readonly string[];
+  public getUserSelectValues(customId: string): readonly string[];
+  public getChannelSelectValues(customId: string): readonly string[];
 }
 
 export interface ModalMessageModalSubmitInteraction<Cached extends CacheType = CacheType>
